@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mods>
+  <mod Part="acegiak_ModExtended" Tables="WeaponMods" Rarity="C" MinTier="0" MaxTier="99" TinkerTier="2" TinkerDisplayName="extended" Value="1.1" Description="&amp;CExtended: This weapon can be used as a polearm." />
+</mods>
