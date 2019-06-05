@@ -27,4 +27,25 @@
     <part Name="acegiak_Reach" Length="1" />
     <tag Name="Tier" Value="2"></tag>
   </object>
+  <object Name="Battle Axe6th" Load="Merge">
+        <part Name="acegiak_Reach" Length="1" />
+  </object>
+  <object Name="Battle Axe7th" Load="Merge">
+        <part Name="acegiak_Reach" Length="1" />
+  </object>
+  <object Name="Battle Axe8th" Load="Merge">
+        <part Name="acegiak_Reach" Length="1" />
+  </object>
+  <object Name="Spear" Load="Merge">
+        <part Name="acegiak_Reach" Length="1" />
+  </object>
+  <object Name="Poison-tipped Spear" Load="Merge">
+        <part Name="acegiak_Reach" Length="1" />
+  </object>
+  <object Name="Staff" Load="Merge">
+        <part Name="acegiak_Reach" Length="1" />
+  </object>
+  <object Name="Amber-Tipped Staff" Load="Merge">
+        <part Name="acegiak_Reach" Length="1" />
+  </object>
 </objects>
