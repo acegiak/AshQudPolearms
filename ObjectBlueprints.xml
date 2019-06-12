@@ -27,6 +27,7 @@
     <part Name="acegiak_Reach" Length="1" />
     <tag Name="Tier" Value="2"></tag>
   </object>
+
   <object Name="Battle Axe6th" Load="Merge">
         <part Name="acegiak_Reach" Length="1" />
   </object>
