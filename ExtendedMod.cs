@@ -29,6 +29,11 @@ namespace XRL.World.Parts
 				return false;
 			}
 
+			MeleeWeapon part2 = Object.GetPart<acegiak_Reach>();
+			if(part2 != null){
+				return false;
+			}
+
 			return true;
 		}
 
