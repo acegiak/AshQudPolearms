@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "/home/acegiak/.config/unity3d/Editor"
+		},
+		{
+			"path": "/home/acegiak/git/qudassembly"
 		}
 	],
 	"settings": {}

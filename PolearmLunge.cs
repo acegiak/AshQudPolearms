@@ -60,15 +60,6 @@ namespace XRL.World.Parts.Skill
 
 		public override bool FireEvent(Event E)
 		{
-			if (E.ID == "AttackerGetWeaponPenModifier")
-			{
-				if (E.HasParameter("Properties") && E.GetStringParameter("Properties") != null && E.GetStringParameter("Properties").Contains("Charging") && E.HasParameter("Hand") && E.GetStringParameter("Hand") == "Primary")
-				{
-					E.SetParameter("PenBonus", E.GetIntParameter("PenBonus") + 1);
-					E.SetParameter("CapBonus", E.GetIntParameter("CapBonus") + 1);
-				}
-				return true;
-			}
 			if (E.ID == "AIGetOffensiveMutationList")
 			{
 				int intParameter = E.GetIntParameter("Distance");
@@ -162,7 +153,7 @@ namespace XRL.World.Parts.Skill
 						}
 						if (ParentObject.DistanceTo(item2) == 2)
 						{
-							ParentObject.FireEvent(Event.New("CommandAttackCell", "Cell", item2, "Properties", "Charging"));
+							ParentObject.FireEvent(Event.New("CommandAttackCell", "Cell", item2, "Properties", "Lunging"));
 						}
 						pActivatedAbility.Cooldown = 0;
 						ParentObject.FireEvent(Event.New("LungedTarget", "Defender", objectsWithPart[0]));

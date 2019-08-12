@@ -22,14 +22,25 @@ namespace XRL.World.Parts
 		public override void Register(GameObject Object)
 		{
 			Object.RegisterPartEvent(this, "GetShortDescription");
+			Object.RegisterPartEvent(this, "AttackerGetWeaponPenModifier");
 			base.Register(Object);
 		}
 
 		public override bool FireEvent(Event E)
 		{
+
+			if (E.ID == "AttackerGetWeaponPenModifier")
+			{
+				if (E.HasParameter("Properties") && E.GetStringParameter("Properties") != null && E.GetStringParameter("Properties").Contains("Charging") && E.HasParameter("Hand") && E.GetStringParameter("Hand") == "Primary")
+				{
+					E.SetParameter("PenBonus", E.GetIntParameter("PenBonus") + 1);
+					E.SetParameter("CapBonus", E.GetIntParameter("CapBonus") + 1);
+				}
+			}
+
 			if (E.ID == "GetShortDescription")
 			{
-	      if(ParentObject.GetPart<acegiak_ModExtended>() == null){
+	      		if(ParentObject.GetPart<acegiak_ModExtended>() == null){
 					E.SetParameter("Postfix", E.GetParameter("Postfix") + "\n&CPolearm: Can be used to fight with additional reach.");
 				}
 			}
