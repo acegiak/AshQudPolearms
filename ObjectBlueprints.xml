@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <objects>
   <object Name="Poleaxe" Inherits="BaseAxe">
-    <part Name="Render" DisplayName="poleaxe" ColorString="&amp;K" RenderString="\" Tile="items/polearm.png"/>
+    <part Name="Render" DisplayName="steel poleaxe" ColorString="&amp;K" RenderString="\" Tile="items/polearm.png"/>
     <part Name="Commerce" Value="255" />
     <part Name="Description" Short="An axehead on a long pole." />
     <part Name="MeleeWeapon" RenderString="\" PenBonus="0" MaxStrengthBonus="0" BaseDamage="1d3+1" Skill="Axe" />
@@ -11,7 +11,7 @@
 
 
   <object Name="Pike" Inherits="BaseDagger">
-    <part Name="Render" DisplayName="pike" ColorString="&amp;Y" RenderString="\"  Tile="items/polearm.png"/>
+    <part Name="Render" DisplayName="steel pike" ColorString="&amp;Y" RenderString="\"  Tile="items/polearm.png"/>
     <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d4" Skill="ShortBlades" SecondaryStat="Agility" />
     <part Name="Commerce" Value="20" />
     <part Name="Description" Short="A long pole with a sharpened spike on the end." />
@@ -20,7 +20,7 @@
   </object>
 
   <object Name="Glaive" Inherits="BaseLongBlade">
-    <part Name="Render" DisplayName="glaive" ColorString="&amp;Y" RenderString="\"></part>
+    <part Name="Render" DisplayName="steel glaive" ColorString="&amp;Y" RenderString="\"></part>
     <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d6" Skill="LongBlades" />
     <part Name="Commerce" Value="30"></part>
     <part Name="Description" Short="A large curved blade a the end of a long pole."></part>

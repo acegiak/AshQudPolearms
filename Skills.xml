@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <skills>
-  <skill Name="Polearms" Class="acegiak_Polearms" Description="You are skilled with polearms." Cost="100" Attribute="Strength" Snippet="polearms">
+  <skill Name="Polearms" Class="acegiak_Polearms" Description="You are skilled with polearms, which do additional penetration while charging or lunging." Cost="100" Attribute="Strength" Snippet="polearms">
     <power Name="Polearm Proficiency" Cost="0" Attribute="Strength" Minimum="0" Class="acegiak_Polearm_Expertise" Snippet="polearms" Description="You get +2 to hit with polearms."></power>
     <power Name="Polearm Lunge" Cost="100" Attribute="Strength" Minimum="0" Class="acegiak_Polearm_Lunge" Snippet="polearms" Description="You can lunge with polearms to attack opponents up to two spaces away."></power>
     <power Name="Polearm Repel" Cost="100" Attribute="Strength" Minimum="0" Class="acegiak_Polearm_Repel" Snippet="polearms" Description="Your attacks with polearms push enemies away from you."></power>
+    <power Name="Polearm Double Grip" Cost="100" Attribute="Strength" Minimum="0" Class="acegiak_Polearm_Grip" Snippet="polearms" Description="You can weild polearms with two hands to deal additional damage."></power>
   </skill>
 </skills>
