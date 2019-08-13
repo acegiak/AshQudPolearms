@@ -2,7 +2,7 @@
 <objects>
   <object Name="Poleaxe" Inherits="BaseAxe">
     <part Name="Render" DisplayName="steel poleaxe" ColorString="&amp;K" RenderString="\" Tile="items/polearm.png"/>
-    <part Name="Commerce" Value="255" />
+    <part Name="Commerce" Value="25" />
     <part Name="Description" Short="An axehead on a long pole." />
     <part Name="MeleeWeapon" RenderString="\" PenBonus="0" MaxStrengthBonus="0" BaseDamage="1d3+1" Skill="Axe" />
     <part Name="acegiak_Reach" Length="1" />
