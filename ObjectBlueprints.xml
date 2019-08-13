@@ -1,42 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <objects>
-  <object Name="Poleaxe" Inherits="BaseAxe">
-    <part Name="Render" DisplayName="steel poleaxe" ColorString="&amp;K" RenderString="\" Tile="items/polearm.png"/>
-    <part Name="Commerce" Value="255" />
-    <part Name="Description" Short="An axehead on a long pole." />
-    <part Name="MeleeWeapon" RenderString="\" PenBonus="0" MaxStrengthBonus="0" BaseDamage="1d3+1" Skill="Axe" />
+      <object Name="Poleaxe" Inherits="BaseAxe">
+        <part Name="Render" DisplayName="&amp;Ysteel&amp;y halberd" ColorString="&amp;K" RenderString="\" Tile="items/polearm.png"/>
+        <part Name="Commerce" Value="25" />
+        <part Name="Description" Short="An simple axehead commandeered from its civilian purpose and elevated to more martial heights on the end of a stick." />
+        <part Name="MeleeWeapon" RenderString="\" PenBonus="0" MaxStrengthBonus="0" BaseDamage="1d3+1" Skill="Axe" />
+        <part Name="acegiak_Reach" Length="1" />
+        <tag Name="Tier" Value="2" />
+      </object>
+      <!-- <object Name="CPoleaxe" Inherits="BaseAxe">
+        <part Name="Render" DisplayName="&amp;bcarbide&amp;y poleaxe" ColorString="&amp;K" RenderString="\" Tile="items/polearm.png"/>
+        <part Name="Commerce" Value="55" />
+        <part Name="Description" Short="Some carbide weapon repurposed into an axe and then again returned to a weapon of war." />
+        <part Name="MeleeWeapon" RenderString="\" PenBonus="0" MaxStrengthBonus="0" BaseDamage="1d3+2" Skill="Axe" />
+        <part Name="acegiak_Reach" Length="1" />
+        <tag Name="Tier" Value="3" />
+      </object>
+  <object Name="FCPoleaxe" Inherits="BaseAxe">
+    <part Name="Render" DisplayName="&amp;Bfolded carbide&amp;y halberd" ColorString="&amp;B" RenderString="\"  Tile="items/polearm.png"></part>
+    <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="5" BaseDamage="1d4+2" Skill="Axe" />
+    <part Name="Commerce" Value="95"></part>
+    <part Name="Description" Short="A facsimile of a civilian axehead but recreated in wicked barbed carbide."></part>
+    <part Name="Metal"></part>
     <part Name="acegiak_Reach" Length="1" />
-    <tag Name="Tier" Value="2" />
-  </object>
+    <tag Name="Tier" Value="4"></tag>
+  </object> -->
 
+  <object Name="Battle Axe6th" Load="Merge">
+      <part Name="acegiak_Reach" Length="1" />
+      <part Name="MeleeWeapon" BaseDamage="1d6+4" Skill="Axe" />
+      <part Name="Physics" bUsesTwoSlots="false"></part>
+</object>
+<object Name="Battle Axe7th" Load="Merge">
+      <part Name="acegiak_Reach" Length="1" />
+      <part Name="MeleeWeapon" BaseDamage="1d6+5" Skill="Axe" />
+      <part Name="Physics" bUsesTwoSlots="false"></part>
+</object>
+<object Name="Battle Axe8th" Load="Merge">
+      <part Name="acegiak_Reach" Length="1" />
+      <part Name="MeleeWeapon" BaseDamage="1d6+6" Skill="Axe" />
+      <part Name="Physics" bUsesTwoSlots="false"></part>
+</object>
 
   <object Name="Pike" Inherits="BaseDagger">
-    <part Name="Render" DisplayName="steel pike" ColorString="&amp;Y" RenderString="\"  Tile="items/polearm.png"/>
+    <part Name="Render" DisplayName="&amp;Ysteel&amp;y pike" ColorString="&amp;Y" RenderString="\"  Tile="items/polearm.png"/>
     <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d4" Skill="ShortBlades" SecondaryStat="Agility" />
     <part Name="Commerce" Value="20" />
-    <part Name="Description" Short="A long pole with a sharpened spike on the end." />
+    <part Name="Description" Short="A long pole with a strong sharpened spike on the end." />
     <part Name="acegiak_Reach" Length="1" />
     <tag Name="Tier" Value="2" />
   </object>
 
+  <object Name="IronSpear" Inherits="BaseDagger">
+    <part Name="Render" DisplayName="spear" RenderString="\"  Tile="items/polearm.png"/>
+    <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d3" Skill="ShortBlades" SecondaryStat="Agility" />
+    <part Name="Commerce" Value="10" />
+    <part Name="Description" Short="A supple wooden pole tipped with wicked metal." />
+    <part Name="acegiak_Reach" Length="1" />
+    <tag Name="Tier" Value="2" />
+  </object>
+
+
+
+  <object Name="FulleritePike" Inherits="BaseDagger">
+      <part Name="Render" DisplayName="&amp;Kfullerite&amp;y pike" ColorString="&amp;K" RenderString="\" Tile="items/polearm.png"></part>
+      <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="6" BaseDamage="1d10" Skill="ShortBlades" SecondaryStat="Agility"></part>
+      <part Name="Commerce" Value="150"></part>
+      <part Name="Description" Short="A fractured, razor sharp slab of matte black material, mounted into the end of a distancing pole."></part>
+      <tag Name="Tier" Value="5"></tag>
+      <part Name="Physics" Weight="2"></part>
+      <part Name="acegiak_Reach" Length="1" />
+    </object>
+
+
   <object Name="Glaive" Inherits="BaseLongBlade">
-    <part Name="Render" DisplayName="steel glaive" ColorString="&amp;Y" RenderString="\"></part>
+    <part Name="Render" DisplayName="&amp;Ysteel&amp;y glaive" ColorString="&amp;Y" RenderString="\"  Tile="items/polearm.png"></part>
     <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d6" Skill="LongBlades" />
     <part Name="Commerce" Value="30"></part>
-    <part Name="Description" Short="A large curved blade a the end of a long pole."></part>
+    <part Name="Description" Short="A large curved blade at the end of a long pole."></part>
     <part Name="acegiak_Reach" Length="1" />
     <tag Name="Tier" Value="2"></tag>
   </object>
 
-  <object Name="Battle Axe6th" Load="Merge">
-        <part Name="acegiak_Reach" Length="1" />
-  </object>
-  <object Name="Battle Axe7th" Load="Merge">
-        <part Name="acegiak_Reach" Length="1" />
-  </object>
-  <object Name="Battle Axe8th" Load="Merge">
-        <part Name="acegiak_Reach" Length="1" />
-  </object>
+  <object Name="CarbideGlaive" Inherits="BaseLongBlade">
+      <part Name="Render" DisplayName="&amp;bcarbide&amp;y glaive" ColorString="&amp;b" RenderString="\" Tile="items/polearm.png"></part>
+      <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="4" BaseDamage="1d8" Skill="LongBlades" />
+      <part Name="Commerce" Value="55"></part>
+      <part Name="Description" Short="A curved grey-blue blade at the end of a long pole."></part>
+      <part Name="Metal"></part>
+      <part Name="acegiak_Reach" Length="1" />
+      <tag Name="Tier" Value="3"></tag>
+      <part Name="Physics" Weight="6"></part>
+    </object>
+
+    
+  <object Name="FoldedCarbideGlaive" Inherits="BaseLongBlade">
+      <part Name="Render" DisplayName="&amp;Bfolded carbide&amp;y glaive" ColorString="&amp;B" RenderString="\" Tile="items/polearm.png"></part>
+      <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="5" BaseDamage="1d10" Skill="LongBlades" />
+      <part Name="Commerce" Value="95"></part>
+      <part Name="Description" Short="A curved grey blade, lined with hundreds of thin, shining blue veins and mounted at the end of a long pole."></part>
+      <part Name="Metal"></part>
+      <part Name="acegiak_Reach" Length="1" />
+      <tag Name="Tier" Value="4"></tag>
+    </object>
+
   <object Name="Spear" Load="Merge">
         <part Name="acegiak_Reach" Length="1" />
   </object>
