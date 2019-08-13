@@ -82,6 +82,17 @@ namespace XRL.World.Parts.Skill
             return GetPrimaryPolearm() != null;
         }
 
+		public void reEquip(GameObject who,GameObject what){
+				GameObject equipped = what.pPhysics.Equipped;
+				BodyPart bodyPart = equipped.FindEquippedObject(what);
+				if (bodyPart != null)
+				{
+					equipped.FireEvent(Event.New("CommandForceUnequipObject", "BodyPart", bodyPart));
+					equipped.FireEvent(Event.New("CommandForceEquipObject", "Object", what, "BodyPart", bodyPart));
+				}
+		}
+		
+
 
 		public override bool FireEvent(Event E)
 		{
@@ -107,8 +118,10 @@ namespace XRL.World.Parts.Skill
                 if(IsPrimaryPolearmEquipped()){
                     if(Ability.ToggleState){
                         GetPrimaryPolearm().ApplyEffect(new acegiak_Gripped());
+						reEquip(ParentObject,GetPrimaryPolearm());
                     }else{
                         GetPrimaryPolearm().RemoveEffect(typeof(acegiak_Gripped));
+						reEquip(ParentObject,GetPrimaryPolearm());
                     }
                 }
 			}
