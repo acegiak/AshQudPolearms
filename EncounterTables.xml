@@ -2,7 +2,7 @@
 
         <encountertable Name="Melee Weapons 1C" Load="Merge">
                 <objects>
-                    <object Chance="5" Number="1d1" Blueprint="IronSpear"></object>
+                    <object Chance="10" Number="1d1" Blueprint="IronSpear"></object>
                 </objects>
         </encountertable>
         <encountertable Name="Melee Weapons 1R" Load="Merge">
