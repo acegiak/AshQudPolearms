@@ -32,6 +32,9 @@ namespace XRL.World.Parts.Effects
                 return false;
             }
             usedTwoSlots = Object.pPhysics.bUsesTwoSlots;
+            if(usedTwoSlots){
+                return false;
+            }
             if(!usedTwoSlots){
                 Object.pPhysics.bUsesTwoSlots = true;
             }
