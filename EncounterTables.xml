@@ -1,5 +1,4 @@
 <encountertables>
-
         <encountertable Name="Melee Weapons 1C" Load="Merge">
                 <objects>
                     <object Chance="10" Number="1d1" Blueprint="IronSpear"></object>

@@ -54,7 +54,7 @@
   <object Name="IronSpear" Inherits="BaseDagger">
     <part Name="Render" DisplayName="spear" RenderString="\"  Tile="items/polearm.png"/>
     <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d3" Skill="ShortBlades" SecondaryStat="Agility" />
-    <part Name="Commerce" Value="10" />
+    <part Name="Commerce" Value="15" />
     <part Name="Description" Short="A supple wooden pole tipped with wicked metal." />
     <part Name="acegiak_Reach" Length="1" />
     <tag Name="Tier" Value="2" />
