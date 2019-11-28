@@ -170,7 +170,7 @@ namespace XRL.World.Parts.Skill
 			ActivatedAbilities activatedAbilities = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
 			if (activatedAbilities != null)
 			{
-				ActivatedAbilityID = activatedAbilities.AddAbility("Polearm Lunge [&Wattack&y]", "CommandAcegiakPolearmLunge", "Skill", string.Empty + '\u0010');
+				ActivatedAbilityID = activatedAbilities.AddAbility("Polearm Lunge [&Wattack&y]", "CommandAcegiakPolearmLunge", "Skill",-1,"You strike out with a polearm to attack a foe two spaces away.", string.Empty + '\u0010');
 				pActivatedAbility = activatedAbilities.AbilityByGuid[ActivatedAbilityID];
 			}
 			return true;

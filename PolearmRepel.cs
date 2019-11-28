@@ -41,7 +41,7 @@ namespace XRL.World.Parts.Skill
 
             if (pAA != null)
             {
-                ActivatedAbilityID = pAA.AddAbility("Repel Attackers", "CommandAcegiakPolearmRepel", "Skill", -1, true, true, "When attacking with a polearm you push enemies away from you.", "-");
+                ActivatedAbilityID = pAA.AddAbility("Repel Attackers", "CommandAcegiakPolearmRepel", "Skill", -1, "When attacking with a polearm you push enemies away from you.", "-");
                 Ability = pAA.AbilityByGuid[ActivatedAbilityID];
             }
 
