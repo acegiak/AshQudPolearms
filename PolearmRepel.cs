@@ -4,7 +4,7 @@ using XRL.Messages;
 using XRL.Rules;
 using XRL.UI;
 using XRL.Language;
-using XRL.World.Parts.Effects;
+using XRL.World.Effects;
 using XRL.World.AI.GoalHandlers;
 
 
@@ -28,7 +28,7 @@ namespace XRL.World.Parts.Skill
 
 		public override void Register(GameObject Object)
 		{
-			Object.RegisterPartEvent(this, "DealDamage");
+			Object.RegisterPartEvent(this, "WeaponHit");
 			Object.RegisterPartEvent(this, "CommandAcegiakPolearmRepel");
 			Object.RegisterPartEvent(this, "AIGetOffensiveMutationList");
 			base.Register(Object);
@@ -94,11 +94,14 @@ namespace XRL.World.Parts.Skill
                 if (Ability != null && Ability.Cooldown <= 0 && Distance <= 1) CommandList.Add(new XRL.World.AI.GoalHandlers.AICommandList("CommandAcegiakPolearmRepel", 1));
                 return true;
 			}
-			else if (E.ID == "DealDamage"){
+			else if (E.ID == "WeaponHit"){
+                //IPart.AddPlayerMessage("Damage Dealt");
 				if(Ability != null && Ability.ToggleState){
+                    //IPart.AddPlayerMessage("Repel Active");
 					GameObject weapon = E.GetParameter("Weapon") as GameObject;
 					if (weapon != null && weapon.GetPart<XRL.World.Parts.acegiak_Reach>() != null)
 					{
+                        //IPart.AddPlayerMessage("Move them!");
 						GameObject defender = E.GetParameter("Defender") as GameObject;
 						GameObject attacker = E.GetParameter("Attacker") as GameObject;
 						Slam(defender,attacker.pPhysics.CurrentCell.GetDirectionFromCell(defender.pPhysics.CurrentCell));
@@ -118,7 +121,7 @@ namespace XRL.World.Parts.Skill
 
         public bool Slam(GameObject target, string sDirection)
         {
-
+            //IPart.AddPlayerMessage("Slammin");
 
             if (target.IsInvalid()){
 				 return false;
@@ -132,29 +135,40 @@ namespace XRL.World.Parts.Skill
                 return false;
             }
 
-            if (C.IsEmpty() && target.pPhysics.Weight < 2000)
-            {
-                if (target.FireEvent(Event.New("CommandMove", "Direction", sDirection, "Forced", 1)))
+            if(!target.MakeSave("Strength",18,ParentObject,null,"Polearm Repel")){
+
+                if (C.IsEmpty() && target.pPhysics.Weight < 2000)
                 {
 
-                    if( target.CurrentCell != null )
-                    {
-                        foreach( var cell in target.CurrentCell.GetAdjacentCells() )
-                        {
-                            cell.FireEvent( Event.New("ObjectEnteredAdjacentCell", "Object", target ));
-                        }
-                    }
+                    
+                    target.pPhysics.Push(sDirection, 1000, 4);
+                    target.DustPuff();
                     return true;
+
+
+                    // if (target.FireEvent(Event.New("CommandMove", "Direction", sDirection, "Forced", 1)))
+                    // {
+
+                    //     if( target.CurrentCell != null )
+                    //     {
+                    //         foreach( var cell in target.CurrentCell.GetAdjacentCells() )
+                    //         {
+                    //             cell.FireEvent( Event.New("ObjectEnteredAdjacentCell", "Object", target ));
+                    //         }
+                    //     }
+                    //     return true;
+                    // }
+                    // else
+                    // {
+                    //     return false;
+                    // }
                 }
                 else
-                {
+                {			
                     return false;
                 }
             }
-            else
-            {			
-                return false;
-            }
+            return false;
         }
 	}
 }

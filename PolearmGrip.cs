@@ -4,8 +4,9 @@ using XRL.Messages;
 using XRL.Rules;
 using XRL.UI;
 using XRL.Language;
-using XRL.World.Parts.Effects;
+using XRL.World.Effects;
 using XRL.World.AI.GoalHandlers;
+using XRL.World.Parts;
 
 
 namespace XRL.World.Parts.Skill
