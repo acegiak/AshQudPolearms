@@ -65,7 +65,7 @@ namespace XRL.World.Parts.Skill
 				int intParameter = E.GetIntParameter("Distance");
 				GameObject gameObjectParameter = E.GetGameObjectParameter("Target");
 				List<AICommandList> list = (List<AICommandList>)E.GetParameter("List");
-				if (pActivatedAbility != null && !ParentObject.AreHostilesAdjacent() && pActivatedAbility.Cooldown <= 0 && intParameter > 3 && !ParentObject.AreHostilesAdjacent() && intParameter < 6 + ParentObject.GetIntProperty("LungeRangeModifier") && ParentObject.HasLOSTo(gameObjectParameter, bIncludeSolid: true, UseTargetability: true))
+				if (pActivatedAbility != null && !ParentObject.AreHostilesAdjacent() && pActivatedAbility.Cooldown <= 0 && intParameter > 3 && !ParentObject.AreHostilesAdjacent() && intParameter < 6 + ParentObject.GetIntProperty("LungeRangeModifier") && ParentObject.HasLOSTo(gameObjectParameter))
 				{
 					List<Cell> list2 = PickLine(2, AllowVis.OnlyVisible);
 					if (list2 == null)
@@ -170,7 +170,7 @@ namespace XRL.World.Parts.Skill
 			ActivatedAbilities activatedAbilities = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
 			if (activatedAbilities != null)
 			{
-				ActivatedAbilityID = activatedAbilities.AddAbility("Polearm Lunge [&Wattack&y]", "CommandAcegiakPolearmLunge", "Skill",-1,"You strike out with a polearm to attack a foe two spaces away.", string.Empty + '\u0010');
+				ActivatedAbilityID = activatedAbilities.AddAbility("Polearm Lunge [&Wattack&y]", "CommandAcegiakPolearmLunge", "Skill","You strike out with a polearm to attack a foe two spaces away.", string.Empty + '\u0010');
 				pActivatedAbility = activatedAbilities.AbilityByGuid[ActivatedAbilityID];
 			}
 			return true;

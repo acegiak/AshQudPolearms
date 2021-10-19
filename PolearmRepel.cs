@@ -28,7 +28,7 @@ namespace XRL.World.Parts.Skill
 
 		public override void Register(GameObject Object)
 		{
-			Object.RegisterPartEvent(this, "WeaponHit");
+			Object.RegisterPartEvent(this, "AttackerHit");
 			Object.RegisterPartEvent(this, "CommandAcegiakPolearmRepel");
 			Object.RegisterPartEvent(this, "AIGetOffensiveMutationList");
 			base.Register(Object);
@@ -41,7 +41,7 @@ namespace XRL.World.Parts.Skill
 
             if (pAA != null)
             {
-                ActivatedAbilityID = pAA.AddAbility("Repel Attackers", "CommandAcegiakPolearmRepel", "Skill", -1,"When attacking with a polearm you push enemies away from you.", "-", true,true);
+                ActivatedAbilityID = pAA.AddAbility("Repel Attackers", "CommandAcegiakPolearmRepel", "Skill","When attacking with a polearm you push enemies away from you.", ">", null, true,true);
                 Ability = pAA.AbilityByGuid[ActivatedAbilityID];
             }
 
@@ -94,7 +94,7 @@ namespace XRL.World.Parts.Skill
                 if (Ability != null && Ability.Cooldown <= 0 && Distance <= 1) CommandList.Add(new XRL.World.AI.GoalHandlers.AICommandList("CommandAcegiakPolearmRepel", 1));
                 return true;
 			}
-			else if (E.ID == "WeaponHit"){
+			if (E.ID == "AttackerHit"){
                 //IPart.AddPlayerMessage("Damage Dealt");
 				if(Ability != null && Ability.ToggleState){
                     //IPart.AddPlayerMessage("Repel Active");
@@ -108,7 +108,8 @@ namespace XRL.World.Parts.Skill
 					}
 				}
 
-			}else if (E.ID == "CommandAcegiakPolearmRepel")
+			}
+			if (E.ID == "CommandAcegiakPolearmRepel")
 			{
 				if (Ability == null)
 				{
@@ -135,7 +136,7 @@ namespace XRL.World.Parts.Skill
                 return false;
             }
 
-            if(!target.MakeSave("Strength",18,ParentObject,null,"Polearm Repel")){
+            if(!target.MakeSave("Strength",20,ParentObject,null,"Polearm Repel")){
 
                 if (C.IsEmpty() && target.pPhysics.Weight < 2000)
                 {

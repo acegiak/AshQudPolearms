@@ -44,7 +44,7 @@ namespace XRL.World.Parts.Skill
 
             if (pAA != null)
             {
-                ActivatedAbilityID = pAA.AddAbility("Double Grip", "CommandAcegiakPolearmGrip", "Skill", -1,"You wield your polearm with two hands for additional damage.", "-",true,false);
+                ActivatedAbilityID = pAA.AddAbility("Double Grip", "CommandAcegiakPolearmGrip", "Skill", "You wield your polearm with two hands for additional damage.", "G",null,true,false);
                 Ability = pAA.AbilityByGuid[ActivatedAbilityID];
             }
 
