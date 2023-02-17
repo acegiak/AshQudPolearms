@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+using XRL.World.Anatomy;
+
 namespace XRL.World.Parts
 {
 	[Serializable]
@@ -11,7 +13,6 @@ namespace XRL.World.Parts
 			
 		public acegiak_Reach()
 		{
-			base.Name = "acegiak_Reach";
 		}
 
 		public override bool AllowStaticRegistration()

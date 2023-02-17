@@ -7,7 +7,7 @@ using XRL.Language;
 using XRL.World.Effects;
 using XRL.World.AI.GoalHandlers;
 using XRL.World.Parts;
-
+using XRL.World.Anatomy;
 
 namespace XRL.World.Parts.Skill
 {

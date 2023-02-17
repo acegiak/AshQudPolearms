@@ -1,6 +1,8 @@
 using System;
 using XRL.World.Parts;
 
+using XRL.World.Anatomy;
+
 namespace XRL.World.Effects
 {
 	[Serializable]
@@ -32,12 +34,12 @@ namespace XRL.World.Effects
             if(Object.HasEffect(typeof(acegiak_Gripped))){
                 return false;
             }
-            usedTwoSlots = Object.pPhysics.bUsesTwoSlots;
+            usedTwoSlots = Object.pPhysics.UsesTwoSlots;
             if(usedTwoSlots){
                 return false;
             }
             if(!usedTwoSlots){
-                Object.pPhysics.bUsesTwoSlots = true;
+                Object.pPhysics.UsesTwoSlots = true;
             }
 
             if(Object.GetPart<MeleeWeapon>() != null){
@@ -51,7 +53,7 @@ namespace XRL.World.Effects
 
         public override void Remove(GameObject Object){
             if(!usedTwoSlots){
-                Object.pPhysics.bUsesTwoSlots = false;
+                Object.pPhysics.UsesTwoSlots = false;
             }
 
             if(Object.GetPart<MeleeWeapon>() != null){
