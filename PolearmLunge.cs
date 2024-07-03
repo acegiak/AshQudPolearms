@@ -7,13 +7,14 @@ using XRL.Language;
 using XRL.World.Effects;
 using XRL.World.AI.GoalHandlers;
 using XRL.World.Anatomy;
+using ConsoleLib.Console;
 
 namespace XRL.World.Parts.Skill
 {
 	[Serializable]
 	public class acegiak_Polearm_Lunge : BaseSkill
 	{
-		public ActivatedAbilityEntry pActivatedAbility;
+		public ActivatedAbilityEntry Ability;
 
 		public Guid ActivatedAbilityID = Guid.Empty;
         
@@ -65,7 +66,7 @@ namespace XRL.World.Parts.Skill
 				int intParameter = E.GetIntParameter("Distance");
 				GameObject gameObjectParameter = E.GetGameObjectParameter("Target");
 				List<AICommandList> list = (List<AICommandList>)E.GetParameter("List");
-				if (pActivatedAbility != null && !ParentObject.AreHostilesAdjacent() && pActivatedAbility.Cooldown <= 0 && intParameter > 3 && !ParentObject.AreHostilesAdjacent() && intParameter < 6 + ParentObject.GetIntProperty("LungeRangeModifier") && ParentObject.HasLOSTo(gameObjectParameter))
+				if (Ability != null && !ParentObject.AreHostilesAdjacent() && Ability.Cooldown <= 0 && intParameter > 3 && !ParentObject.AreHostilesAdjacent() && intParameter < 6 + ParentObject.GetIntProperty("LungeRangeModifier") && ParentObject.HasLOSTo(gameObjectParameter))
 				{
 					List<Cell> list2 = PickLine(2, AllowVis.OnlyVisible);
 					if (list2 == null)
@@ -115,6 +116,7 @@ namespace XRL.World.Parts.Skill
 				List<Cell> list3 = PickLine(2, AllowVis.OnlyVisible, ValidLungeTarget);
 				if (list3 == null)
 				{
+					Popup.Show("Not a valid lunge target.");
 					return true;
 				}
 				int num = 3;
@@ -141,49 +143,60 @@ namespace XRL.World.Parts.Skill
 				{
 					list3.RemoveAt(0);
 				}
+				if(list3.Count <= 0){
+					Popup.Show("Invalid target cell!");
+					return false;
+				}
 				int num3 = 10;
-				foreach (Cell item2 in list3)
+				foreach (Cell targetcell in list3)
 				{
-					List<GameObject> objectsWithPart = item2.GetObjectsWithPart("Combat");
-					if (objectsWithPart.Count > 0)
+					if (ParentObject.DistanceTo(targetcell) != 2){
+						continue;
+					}
+					GameObject combattarget = targetcell.GetCombatTarget(ParentObject, IgnoreFlight: false, IgnoreAttackable: false, IgnorePhase: false, 5);
+					if (combattarget != null)
 					{
-						if (objectsWithPart[0].IsPlayer())
+						GameObject primaryArm = ParentObject.GetPrimaryWeapon();
+						
+						if (combattarget.IsPlayer())
 						{
 							IPart.AddPlayerMessage("&R" + ParentObject.The + ParentObject.DisplayName + " &R" + ParentObject.GetVerb("lunge", PrependSpace: false) + " you!");
 						}
-						if (ParentObject.DistanceTo(item2) == 2)
-						{
-							ParentObject.FireEvent(Event.New("CommandAttackCell", "Cell", item2, "Properties", "Lunging"));
-						}
-						pActivatedAbility.Cooldown = 0;
-						ParentObject.FireEvent(Event.New("LungedTarget", "Defender", objectsWithPart[0]));
-						objectsWithPart[0].FireEvent(Event.New("WasLunged", "Attacker", ParentObject));
+						// ParentObject.FireEvent(Event.New("CommandAttackCell", "Cell", targetcell, "Properties", "Lunging"));
+						Combat.MeleeAttackWithWeapon(ParentObject, combattarget, primaryArm, ParentObject.Body.FindDefaultOrEquippedItem(primaryArm), "Lunging", 0, 2, 2, 0, 0, Primary: true);
+
+						Ability.Cooldown = 0;
+						ParentObject.FireEvent(Event.New("LungedTarget", "Defender", combattarget));
+						combattarget.FireEvent(Event.New("WasLunged", "Attacker", ParentObject));
 						return true;
+					}else{
+						Popup.Show("No target found in cell!");
+						return false;
 					}
 				}
+
+				Popup.Show("No valid lunge space found.");
+				return false;
 			}
 			return base.FireEvent(E);
 		}
 
 		public override bool AddSkill(GameObject GO)
 		{
-			ActivatedAbilities activatedAbilities = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
-			if (activatedAbilities != null)
-			{
-				ActivatedAbilityID = activatedAbilities.AddAbility("Polearm Lunge [&Wattack&y]", "CommandAcegiakPolearmLunge", "Skill","You strike out with a polearm to attack a foe two spaces away.", string.Empty + '\u0010');
-				pActivatedAbility = activatedAbilities.AbilityByGuid[ActivatedAbilityID];
-			}
+
+			ActivatedAbilityID = AddMyActivatedAbility("Polearm Lunge", "CommandAcegiakPolearmLunge", "Skill","You strike out with a polearm to attack a foe two spaces away.", "G", null, Toggleable: false,  IsAttack: true, IsRealityDistortionBased: false, IsWorldMapUsable: false, UITileDefault : Renderable.UITile("abilities/polearmlunge.png", foregroundColorCode : 'Y', detailColorCode : 'W', noTileAlt : "G", noTileColor : '\0'));
+			Ability = ParentObject.ActivatedAbilities?.GetAbility(ActivatedAbilityID);
+            
 			return true;
 		}
 
 		public override bool RemoveSkill(GameObject GO)
 		{
-			if (ActivatedAbilityID != Guid.Empty)
-			{
-				ActivatedAbilities activatedAbilities = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
-				activatedAbilities.RemoveAbility(ActivatedAbilityID);
-				pActivatedAbility = null;
-			}
+            if (ActivatedAbilityID != Guid.Empty)
+            {
+                RemoveMyActivatedAbility(ref ActivatedAbilityID);
+            }
+
 			return true;
 		}
 	}

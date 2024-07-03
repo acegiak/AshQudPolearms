@@ -8,6 +8,7 @@ using XRL.World.Effects;
 using XRL.World.AI.GoalHandlers;
 using XRL.World.Parts;
 using XRL.World.Anatomy;
+using ConsoleLib.Console;
 
 namespace XRL.World.Parts.Skill
 {
@@ -40,24 +41,22 @@ namespace XRL.World.Parts.Skill
 
         public override bool AddSkill(GameObject GO)
         {
-            ActivatedAbilities pAA = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
-
-            if (pAA != null)
-            {
-                ActivatedAbilityID = pAA.AddAbility("Double Grip", "CommandAcegiakPolearmGrip", "Skill", "You wield your polearm with two hands for additional damage.", "G",null,true,false);
-                Ability = pAA.AbilityByGuid[ActivatedAbilityID];
-            }
+     
+               
+			ActivatedAbilityID = AddMyActivatedAbility("Double Grip", "CommandAcegiakPolearmGrip", "Skill", "You wield your polearm with two hands for additional damage.", "G", null, Toggleable: true, DefaultToggleState: false, ActiveToggle: true, IsAttack: false, IsRealityDistortionBased: false, IsWorldMapUsable: true, UITileDefault : Renderable.UITile("abilities/polearmdoublegrip.png", foregroundColorCode : 'Y', detailColorCode : 'W', noTileAlt : "G", noTileColor : '\0'), UITileToggleOn : Renderable.UITile("abilities/polearmdoublegripon.png", foregroundColorCode : 'Y', detailColorCode : 'W', noTileAlt : "G", noTileColor : '\0'), UITileDisabled : null, UITileCoolingDown : null);
+			Ability = ParentObject.ActivatedAbilities?.GetAbility(ActivatedAbilityID);
+            
 
             return true;
         }
 
         public override bool RemoveSkill(GameObject GO)
         {
-            if (ActivatedAbilityID != Guid.Empty)
+                 if (ActivatedAbilityID != Guid.Empty)
             {
-                ActivatedAbilities pAA = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
-                pAA.RemoveAbility(ActivatedAbilityID);
+                RemoveMyActivatedAbility(ref ActivatedAbilityID);
             }
+
 
             return true;
         }

@@ -4,13 +4,7 @@
 			"path": "."
 		},
 		{
-			"path": "/home/acegiak/.steam/steam/steamapps/common/Caves of Qud/CoQ_Data/StreamingAssets/Base"
-		},
-		{
-			"path": "/home/acegiak/git/qudassembly"
-		},
-		{
-			"path": "../../.config/unity3d/Freehold Games/CavesOfQud"
+			"path": "../qudassembly"
 		}
 	],
 	"settings": {}

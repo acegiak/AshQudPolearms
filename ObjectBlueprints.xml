@@ -52,8 +52,8 @@
   </object>
 
   <object Name="IronSpear" Inherits="BaseDagger">
-    <part Name="Render" DisplayName="spear" RenderString="\"  Tile="items/polearm.png"/>
-    <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d3" Skill="ShortBlades" SecondaryStat="Agility" />
+    <part Name="Render" DisplayName="iron spear" RenderString="\"  Tile="items/polearm.png"/>
+    <part Name="MeleeWeapon" RenderString="\" MaxStrengthBonus="3" BaseDamage="1d2+1" Skill="ShortBlades" SecondaryStat="Agility" />
     <part Name="Commerce" Value="15" />
     <part Name="Description" Short="A supple wooden pole tipped with wicked metal." />
     <part Name="acegiak_Reach" Length="1" />
@@ -104,8 +104,13 @@
       <tag Name="Tier" Value="4"></tag>
     </object>
 
-  <object Name="Spear" Load="Merge">
-        <part Name="acegiak_Reach" Length="1" />
+  <object Name="Spear" Inherits="BaseDagger">
+    <part Name="Render" DisplayName="spear" Tile="items/spear.png" />
+    <part Name="MeleeWeapon" MaxStrengthBonus="2" BaseDamage="1d3" />
+    <part Name="Commerce" Value="5" />
+    <part Name="Description" Short="A sharpened stick, innovated in its length allowing for injury at reach." />
+    <tag Name="Tier" Value="1" />
+    <part Name="acegiak_Reach" Length="1" />	
   </object>
   <object Name="Poison-tipped Spear" Load="Merge">
         <part Name="acegiak_Reach" Length="1" />

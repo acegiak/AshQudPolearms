@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<populations>
+
+  <population Name="Melee Weapons 1C" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="Spear" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 1R" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="IronSpear" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 2C" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="IronSpear" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 2R" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="Poleaxe" />
+			<object Weight="20" Number="1" Blueprint="Pike" />
+			<object Weight="20" Number="1" Blueprint="Glaive" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 3C" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="Poleaxe" />
+			<object Weight="20" Number="1" Blueprint="Pike" />
+			<object Weight="20" Number="1" Blueprint="Glaive" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 3R" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="CarbideGlaive" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 4C" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="CarbideGlaive" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 4R" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="FoldedCarbideGlaive" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 5C" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="FoldedCarbideGlaive" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 5R" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="FulleritePike" />
+	</group>
+  </population>
+
+  <population Name="Melee Weapons 6C" Load="Merge">
+    <group Name="Items"  Load="Merge">
+			<object Weight="20" Number="1" Blueprint="FulleritePike" />
+	</group>
+  </population>
+
+			
+</populations>

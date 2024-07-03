@@ -1,7 +1,7 @@
 <encountertables>
         <encountertable Name="Melee Weapons 1C" Load="Merge">
                 <objects>
-                    <object Chance="10" Number="1d1" Blueprint="IronSpear"></object>
+                    <object Chance="90" Number="1d1" Blueprint="Spear"></object>
                 </objects>
         </encountertable>
         <encountertable Name="Melee Weapons 1R" Load="Merge">
@@ -23,7 +23,21 @@
                 </objects>
         </encountertable>
 
+        <encountertable Name="Melee Weapons 3C" Load="Merge">
+                <objects>
+                    <object Chance="20" Number="1d1" Blueprint="Poleaxe"></object>
+                    <object Chance="20" Number="1d1" Blueprint="Pike"></object>
+                    <object Chance="20" Number="1d1" Blueprint="Glaive"></object>
+                </objects>
+        </encountertable>
+
         <encountertable Name="Melee Weapons 3R" Load="Merge">
+                <objects>
+                    <object Chance="10" Number="1d1" Blueprint="CarbideGlaive"></object>
+                </objects>
+        </encountertable>
+
+        <encountertable Name="Melee Weapons 4C" Load="Merge">
                 <objects>
                     <object Chance="10" Number="1d1" Blueprint="CarbideGlaive"></object>
                 </objects>
@@ -33,7 +47,17 @@
                     <object Chance="10" Number="1d1" Blueprint="FoldedCarbideGlaive"></object>
                 </objects>
         </encountertable>
+        <encountertable Name="Melee Weapons 5C" Load="Merge">
+                <objects>
+                    <object Chance="10" Number="1d1" Blueprint="FoldedCarbideGlaive"></object>
+                </objects>
+        </encountertable>
         <encountertable Name="Melee Weapons 5R" Load="Merge">
+                <objects>
+                    <object Chance="10" Number="1d1" Blueprint="FulleritePike"></object>
+                </objects>
+        </encountertable>
+        <encountertable Name="Melee Weapons 6C" Load="Merge">
                 <objects>
                     <object Chance="10" Number="1d1" Blueprint="FulleritePike"></object>
                 </objects>

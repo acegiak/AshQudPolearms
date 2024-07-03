@@ -7,6 +7,7 @@ using XRL.Language;
 using XRL.World.Effects;
 using XRL.World.AI.GoalHandlers;
 using XRL.World.Anatomy;
+using ConsoleLib.Console;
 
 namespace XRL.World.Parts.Skill
 {
@@ -37,13 +38,9 @@ namespace XRL.World.Parts.Skill
 
         public override bool AddSkill(GameObject GO)
         {
-            ActivatedAbilities pAA = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
-
-            if (pAA != null)
-            {
-                ActivatedAbilityID = pAA.AddAbility("Repel Attackers", "CommandAcegiakPolearmRepel", "Skill","When attacking with a polearm you push enemies away from you.", ">", null, true,true);
-                Ability = pAA.AbilityByGuid[ActivatedAbilityID];
-            }
+			ActivatedAbilityID = AddMyActivatedAbility("Repel Attackers", "CommandAcegiakPolearmRepel", "Skill","When attacking with a polearm you push enemies away from you.", ">", null, Toggleable: true, DefaultToggleState: true, ActiveToggle: true, IsAttack: false, IsRealityDistortionBased: false, IsWorldMapUsable: true, UITileDefault : Renderable.UITile("abilities/polearmrepel.png", foregroundColorCode : 'Y', detailColorCode : 'W', noTileAlt : ">", noTileColor : '\0'), UITileToggleOn : Renderable.UITile("abilities/polearmrepelon.png", foregroundColorCode : 'Y', detailColorCode : 'W', noTileAlt : ">", noTileColor : '\0'), UITileDisabled : null, UITileCoolingDown : null);
+			Ability = ParentObject.ActivatedAbilities?.GetAbility(ActivatedAbilityID);
+            
 
             return true;
         }
@@ -52,8 +49,7 @@ namespace XRL.World.Parts.Skill
         {
             if (ActivatedAbilityID != Guid.Empty)
             {
-                ActivatedAbilities pAA = GO.GetPart("ActivatedAbilities") as ActivatedAbilities;
-                pAA.RemoveAbility(ActivatedAbilityID);
+                RemoveMyActivatedAbility(ref ActivatedAbilityID);
             }
 
             return true;
