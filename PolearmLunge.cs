@@ -162,12 +162,18 @@ namespace XRL.World.Parts.Skill
 						{
 							IPart.AddPlayerMessage("&R" + ParentObject.The + ParentObject.DisplayName + " &R" + ParentObject.GetVerb("lunge", PrependSpace: false) + " you!");
 						}
-						// ParentObject.FireEvent(Event.New("CommandAttackCell", "Cell", targetcell, "Properties", "Lunging"));
+						// Combat.MeleeAttackWithWeapon(ParentObject, combatTarget2, primaryBlade, ParentObject.Body.FindDefaultOrEquippedItem(primaryBlade), "Lunging", 0, 2, 2, 0, 0, Primary: true);
+
 						Combat.MeleeAttackWithWeapon(ParentObject, combattarget, primaryArm, ParentObject.Body.FindDefaultOrEquippedItem(primaryArm), "Lunging", 0, 2, 2, 0, 0, Primary: true);
 
 						Ability.Cooldown = 0;
 						ParentObject.FireEvent(Event.New("LungedTarget", "Defender", combattarget));
 						combattarget.FireEvent(Event.New("WasLunged", "Attacker", ParentObject));
+
+
+						ParentObject?.PlayWorldSound("Sounds/Abilities/sfx_ability_longBlade_lunge");
+
+						ParentObject.UseEnergy(1000, "Polearm Lunge");
 						return true;
 					}else{
 						Popup.Show("No target found in cell!");
