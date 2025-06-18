@@ -29,17 +29,17 @@
   <object Name="Battle Axe6th" Load="Merge">
       <part Name="acegiak_Reach" Length="1" />
       <part Name="MeleeWeapon" BaseDamage="1d6+4" Skill="Axe" />
-      <part Name="Physics" bUsesTwoSlots="false"></part>
+      <part Name="Physics" UsesTwoSlots="false"></part>
 </object>
 <object Name="Battle Axe7th" Load="Merge">
       <part Name="acegiak_Reach" Length="1" />
       <part Name="MeleeWeapon" BaseDamage="1d6+5" Skill="Axe" />
-      <part Name="Physics" bUsesTwoSlots="false"></part>
+      <part Name="Physics" UsesTwoSlots="false"></part>
 </object>
 <object Name="Battle Axe8th" Load="Merge">
       <part Name="acegiak_Reach" Length="1" />
       <part Name="MeleeWeapon" BaseDamage="1d6+6" Skill="Axe" />
-      <part Name="Physics" bUsesTwoSlots="false"></part>
+      <part Name="Physics" UsesTwoSlots="false"></part>
 </object>
 
   <object Name="Pike" Inherits="BaseDagger">

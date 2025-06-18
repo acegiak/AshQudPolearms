@@ -18,10 +18,6 @@ namespace XRL.World.Parts.Skill
 		public Guid ActivatedAbilityID = Guid.Empty;
         public ActivatedAbilityEntry Ability = null;
         
-		public acegiak_Polearm_Grip()
-		{
-			DisplayName = "Polearm_Grip";
-		}
 
 		public override bool AllowStaticRegistration()
 		{

@@ -17,11 +17,6 @@ namespace XRL.World.Parts.Skill
 		public Guid ActivatedAbilityID = Guid.Empty;
         public ActivatedAbilityEntry Ability = null;
         
-		public acegiak_Polearm_Repel()
-		{
-			DisplayName = "Polearm_Repel";
-		}
-
 		public override bool AllowStaticRegistration()
 		{
 			return true;

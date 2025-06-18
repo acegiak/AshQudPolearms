@@ -5,10 +5,6 @@ namespace XRL.World.Parts.Skill
 	[Serializable]
 	public class acegiak_Polearms : BaseSkill
 	{
-		public acegiak_Polearms()
-		{
-			DisplayName = "Polearm";
-		}
 
 		public override bool AllowStaticRegistration()
 		{

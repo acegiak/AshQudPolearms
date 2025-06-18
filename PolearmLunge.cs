@@ -18,10 +18,7 @@ namespace XRL.World.Parts.Skill
 
 		public Guid ActivatedAbilityID = Guid.Empty;
         
-		public acegiak_Polearm_Lunge()
-		{
-			DisplayName = "Polearm_Lunge";
-		}
+	
 
 		public override void Register(GameObject Object)
 		{

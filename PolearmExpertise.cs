@@ -7,10 +7,6 @@ namespace XRL.World.Parts.Skill
 	{
 		public int HitBonus = 2;
 
-		public acegiak_Polearm_Expertise()
-		{
-			DisplayName = "Polearm_Expertise";
-		}
 
 		public override bool AllowStaticRegistration()
 		{
